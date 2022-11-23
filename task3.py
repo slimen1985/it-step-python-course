@@ -1,16 +1,12 @@
-def get_pairs(lst: list) -> list[tuple]:
-
-    d = {}
-    count = 0
+from typing import Tuple, List
+def get_pairs(lst: List) -> List[Tuple]:
+    l = []
     if len(lst) == 1:
         return None
     else:
-        for i in lst:
-            if len(lst) - 1 > count:
-                d[i] = lst[count + 1]
-                count += 1
-            else:
-                return list(d.items())
+        for i in range(len(lst) - 1):
+            l.append((lst[i], lst[i + 1]))
+        return l
 
 
 pairs = input('Enter list: ')
