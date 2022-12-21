@@ -1,20 +1,74 @@
-def most_common_words(file_path, number_of_words=3):
-    with open('data/lorem_ipsum.txt', 'r') as rf:
-        words = rf.read().replace(',', '').replace('.', '').lower().split()
+class Bird:
 
-    d_words = {}
-    for word in words:
-        d_words[word] = words.count(word)
+    def __init__(self, name):
+        self.name = name
 
-    list_val = list(reversed(sorted(d_words.values())))
+    def fly(self):
+        print(f"Птица {self.name} умеет летать")
 
-    res = []
-    for _ in list_val:
-        for k, v in d_words.items():
-            if v == _:
-                res.append(k)
-
-    print(res[0:number_of_words])
+    def walk(self):
+        print(f"Птица {self.name} умеет ходить")
 
 
-most_common_words('lorem_ipsum.txt')
+bird = Bird("Утка")
+bird.fly()
+bird.walk()
+
+
+class FlyingBird(Bird):
+    def __init__(self, name, ration="мясо"):
+        super().__init__(name)
+        self.ration = ration
+
+
+fly_bird = FlyingBird("Орел")
+fly_bird.fly()
+fly_bird.walk()
+
+
+class NonFlyingBird:
+
+    def __init__(self, name, ration="grass"):
+        self.name = name
+        self.ration = ration
+
+    def walk(self):
+        print(f"Птица {self.name} не летает")
+
+
+non_fly = NonFlyingBird("Страус")
+non_fly.walk()
+
+
+class SuperBird(FlyingBird, NonFlyingBird):
+    def __init__(self, name, ration):
+        super().__init__(name, ration)
+
+    def swimm(self):
+        print(f"Птица {self.name} умеет плавать")
+
+
+    def eat(self):
+        print(f"Птица {self.name} eats {self.ration}")
+
+
+super_bird = SuperBird("Гусь", "Зерно")
+super_bird.fly()
+super_bird.walk()
+super_bird.swimm()
+super_bird.eat()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
