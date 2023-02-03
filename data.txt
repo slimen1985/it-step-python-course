@@ -1,0 +1,1 @@
+{"people": [{"fname": "Vadim", "lname": "Liubin", "status": "admin"}, {"fname": "Nick", "lname": "Bush", "status": "user"}, {"fname": "Helen", "lname": "Jonse", "status": "user"}]}
