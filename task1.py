@@ -1,9 +1,15 @@
-import xml.etree.ElementTree as ET
+import time
+import threading
 
-root = ET.Element("root")
-doc = ET.SubElement(root, "doc")
-field1 = ET.SubElement(doc, "field1").text = "val1"
-field2 = ET.SubElement(doc, "field2").text = "val2"
 
-tree = ET.ElementTree(root)
-tree.write("example.xml")
+def remind():
+    reminder = input("О чем вам напомнить? ")
+    duration = int(input("Через сколько секунд? "))
+    time.sleep(duration)
+    print(reminder)
+
+
+thread = threading.Thread(target=remind)
+thread.start()
+
+print("Пока поток работает, мы можем сделать что нибудь еще.")
